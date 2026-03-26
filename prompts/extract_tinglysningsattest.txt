@@ -13,7 +13,7 @@ FULDSTÆNDIGHED:
   der måske fortsætter på næste side.
 
 VIGTIGT:
-- Udtræk KUN date_reference, registered_at, akt_nr, title, applies_to_matrikler, raw_matrikel_references, raw_scope_text, scope_source og confidence
+- Udtræk KUN date_reference, registered_at, akt_nr, title, supplementary_text, other_properties_count, priority_text, applies_to_matrikler, raw_matrikel_references,   raw_scope_text, scope_source og confidence
 - Løbenummeret (fx "09.02.1957-490-40") er kritisk — kopiér det præcist som det står
 - akt_nr er aktens identifikator/volumenummer (fx "40 B 405", "23 M 20", "B-405") — kopiér præcist som det fremgår
 - Titlen skal være kort og præcis baseret på beskrivelsen i attesten
@@ -24,6 +24,9 @@ For hver servitut, returner et JSON-objekt med disse felter:
 - registered_at: Tinglysningsdato som ISO-dato `YYYY-MM-DD`, hvis den fremgår sikkert af date_reference eller teksten. Brug null hvis ukendt.
 - akt_nr: Aktens identifikator/nummer præcist som angivet (fx "40 B 405", "40B405"). Brug null hvis ikke angivet.
 - title: Kort, præcis titel (fx "Vejbyggelinje fra Billeshavevej", "Afløbsledning", "Vandstandsregulering").
+- supplementary_text: Udtræk ALT indhold fra "Tillægstekst". Det er MEGET VIGTIGT at få påtegninger med, f.eks. "påtegning i akt J431". Hvis intet findes, brug null.
+- other_properties_count: Hvis teksten nævner "Også tinglyst på: Antal: X", så udtræk tallet X som et heltal. Brug null hvis det ikke findes.
+- priority_text: Udtræk tekst om servituttens prioritet eller rækkefølge (fx "Hæfter før..."), hvis det er nævnt. Brug null hvis ukendt.
 - applies_to_matrikler: Liste over matrikelnumre fra attesten som servitutten gælder for.
     I attesten vises dette typisk som "Vedr 38B", "Vedr 1M", "Vedr 1A" i tillægsteksten.
     Udtræk PRÆCIST det matrikelnummer der er nævnt (fx ["38b"], ["1m"], ["1a"]).
