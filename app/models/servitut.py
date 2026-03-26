@@ -19,6 +19,9 @@ class Servitut(BaseModel):
     registered_at: Optional[date] = None
     akt_nr: Optional[str] = None
     title: Optional[str] = None
+    supplementary_text: Optional[str] = None
+    other_properties_count: Optional[int] = None
+    priority_text: Optional[str] = None
     summary: Optional[str] = None
     beneficiary: Optional[str] = None
     disposition_type: Optional[str] = None  # rådighed | tilstand
